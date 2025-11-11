@@ -1,4 +1,4 @@
-# 🧠 Ticket Analysis Bot  
+# Ticket Analysis Bot Tech Support Team  
 > AI-powered ticket analytics and summarization using LLMs, ChromaDB, and Streamlit.
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)
@@ -10,7 +10,7 @@
 
 ---
 
-## 🚀 Overview
+## Overview
 **Ticket Analysis Bot** is an end-to-end **Retrieval-Augmented Generation (RAG)** system designed to process and analyze large-scale support ticket PDFs.  
 It extracts, embeds, and indexes textual data from multi-megabyte PDFs, stores embeddings in **ChromaDB**, and uses **Groq LLMs** to generate summarized, human-readable insights.
 
@@ -21,7 +21,7 @@ This system features:
 
 ---
 
-## 🎯 Key Features
+## Key Features
 ✅ Handles **70MB+ PDF documents** efficiently.  
 ✅ Embeds and indexes text using **SentenceTransformers**.  
 ✅ **Vector search** powered by ChromaDB.  
@@ -33,9 +33,8 @@ This system features:
 
 ---
 
-## 🧩 System Architecture
-
-```mermaid
+## System Architecture
+``` bash
 flowchart TD
     A[User] -->|Question| B[Streamlit UI]
     B --> C[FastAPI Backend]
@@ -44,7 +43,7 @@ flowchart TD
     C --> F[LLM Client (Groq API)]
     F --> G[Answer Generator]
     G --> B
-```
+    ```
 
 ---
 
@@ -62,7 +61,7 @@ flowchart TD
 
 ---
 
-## 🧠 Project Workflow
+## Project Workflow
 1. **PDF Ingestion:** Extracts text using PyPDF2.  
 2. **Chunking & Embedding:** Generates embeddings with SentenceTransformer.  
 3. **Vector Storage:** Persists embeddings in ChromaDB.  
@@ -72,7 +71,7 @@ flowchart TD
 
 ---
 
-## 🧰 Installation & Setup
+## Installation & Setup
 
 ### Clone repository
 ```bash
@@ -133,7 +132,7 @@ streamlit run streamlit_app.py
 
 ---
 
-## 💬 Example Queries
+## Example Queries
 | Query | Expected Response |
 |-------|--------------------|
 | *“What are the most common issues from Roca customers?”* | Summarized ticket patterns for Roca. |
@@ -142,7 +141,7 @@ streamlit run streamlit_app.py
 
 ---
 
-## 🧠 Project Structure
+## Project Structure
 
 ```
 ticket-bot/
@@ -168,7 +167,7 @@ ticket-bot/
 
 ---
 
-## 🐳 Docker Deployment
+## Docker Deployment
 ```bash
 docker build -t ticket-bot .
 docker run -p 8000:8000 -p 8501:8501 ticket-bot
@@ -179,7 +178,7 @@ Access:
 
 ---
 
-## 📈 Future Improvements
+## Future Improvements
 - [ ] Add LangChain for multi-step reasoning  
 - [ ] Integrate Redis-based caching  
 - [ ] Add filters for company/date  
@@ -191,7 +190,9 @@ Access:
 ## 👨‍💻 Author
 **Venkatesh P**  
 Machine Learning Engineer | AI Infrastructure | Data Science  
-🔗 [LinkedIn](https://www.linkedin.com/in/venkatesh-hyper)  
-💼 [GitHub](https://github.com/venkatesh-hyper)  
+[LinkedIn](https://www.linkedin.com/in/venkatesh-hyper)  
+[GitHub](https://github.com/venkatesh-hyper)  
+
+- [ ] Special Thanks to my friend koushick for data support  
 
 > *“Built with Python, engineered for insight.”*
