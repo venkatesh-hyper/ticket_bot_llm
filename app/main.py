@@ -13,15 +13,21 @@ def load_config():
 def main():
     load_dotenv()
     config = load_config()
-    print("Ticket Analysis Bot — Initializing system...")
 
-    pdf_ingestor = PDFIngestor()
-    embedder = Embedder(config["model_name"])
-    vector_db = VectorStore(config["chroma_dir"])
-    retriever = Retriever(vector_db)
+    print("🚀 Ticket Analysis Bot — Starting interactive pipeline")
+
+    store = VectorStore(config["chroma_dir"])
+    retriever = Retriever(store, config["model_name"])
     llm = LLMClient(os.getenv("GROQ_API_KEY"), os.getenv("LLM_MODEL"))
 
-    print(" System initialized successfully!")
+    while True:
+        query = input("\nAsk a question (or 'exit'): ").strip()
+        if query.lower() in ["exit", "quit"]:
+            break
+        contexts = retriever.get_relevant_chunks(query, top_k=config["top_k"])
+        answer = llm.generate_answer(contexts, query)
+        print("\n Answer:\n", answer)
+
 
 if __name__ == "__main__":
     main()

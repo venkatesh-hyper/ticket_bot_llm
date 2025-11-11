@@ -1,15 +1,19 @@
 import chromadb
-from chromadb.config import Settings
 
 class VectorStore:
     def __init__(self, persist_dir="chroma_storage"):
-        print(f" Initializing ChromaDB at {persist_dir}")
-        settings = Settings(chroma_db_impl="duckdb+parquet", persist_directory=persist_dir)
-        self.client = chromadb.Client(settings)
+        print(f"Initializing ChromaDB at {persist_dir}")
+        try:
+            # Persistent client is the new standard
+            self.client = chromadb.PersistentClient(path=persist_dir)
+        except Exception as e:
+            print(f" Persistent client failed ({e}), using Ephemeral fallback.")
+            self.client = chromadb.EphemeralClient()
+
+        # Create or get a collection
         self.collection = self.client.get_or_create_collection("tickets")
 
     def add_chunks(self, chunks, embeddings, metadatas):
-        """Store chunks + embeddings."""
         ids = [f"doc_{i}" for i in range(len(chunks))]
         self.collection.add(
             documents=chunks,
@@ -17,8 +21,7 @@ class VectorStore:
             metadatas=metadatas,
             ids=ids
         )
-        self.client.persist()
-        print(f"✅ Stored {len(chunks)} chunks in Chroma.")
+        print(f"✅ Stored {len(chunks)} chunks in ChromaDB.")
 
     def search(self, query_embedding, top_k=4):
         results = self.collection.query(
