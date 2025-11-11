@@ -1,0 +1,5 @@
+model_name: "all-MiniLM-L6-v2"
+chroma_dir: "chroma_storage"
+pdf_chunk_size: 800
+pdf_chunk_overlap: 100
+top_k: 4

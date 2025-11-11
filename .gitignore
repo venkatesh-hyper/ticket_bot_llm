@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.env.*
+*.db
+*.sqlite3
+
+# IDE
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Data
+chroma_storage/
+*.pdf
+*.csv
+*.json
+*.log
+*.zip
+
+# Virtual env
+venv/
+env/
+
+# Streamlit cache
+.streamlit/
