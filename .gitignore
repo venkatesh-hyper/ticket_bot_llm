@@ -30,3 +30,4 @@ env/
 
 # Streamlit cache
 .streamlit/
+.env
