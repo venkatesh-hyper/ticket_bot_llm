@@ -31,3 +31,4 @@ env/
 # Streamlit cache
 .streamlit/
 .env
+.gitignore
