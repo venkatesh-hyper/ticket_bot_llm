@@ -43,7 +43,7 @@ flowchart TD
     C --> F[LLM Client (Groq API)]
     F --> G[Answer Generator]
     G --> B
-    ```
+```
 
 ---
 

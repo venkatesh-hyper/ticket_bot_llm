@@ -9,3 +9,10 @@ pydantic
 python-dotenv
 requests
 tqdm
+groq-python
+dataclasses-json
+loguru
+pytest
+pytest-asyncio
+httpx
+pytest-mock
