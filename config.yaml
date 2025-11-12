@@ -1,5 +1,19 @@
-model_name: "all-MiniLM-L6-v2"
-chroma_dir: "chroma_storage"
-pdf_chunk_size: 800
-pdf_chunk_overlap: 100
-top_k: 4
+# Ticket Analysis Bot - Configuration File
+
+# LLM Settings
+model_name: "meta-llama/llama-4-scout-17b-16e-instruct"   # Groq or fallback model
+temperature: 0.2                                           # Optional: LLM creativity
+
+# ChromaDB Settings
+chroma_dir: "chroma_storage"                               # Folder for persistent vector DB
+top_k: 5                                                   # Number of chunks to retrieve
+
+# PDF Ingestion Settings
+pdf_chunk_size: 800                                        # Number of words per chunk
+pdf_chunk_overlap: 100                                     # Overlap between chunks
+
+# Embedding Model
+embedding_model: "meta-llama/llama-4-scout-17b-16e-instruct" # For both ingestion + retrieval
+
+# Logging & Runtime
+debug: true                                                # Verbose logging

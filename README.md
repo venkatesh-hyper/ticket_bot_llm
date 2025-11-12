@@ -55,7 +55,7 @@ flowchart TD
 | Frontend | Streamlit |
 | Vector Database | ChromaDB |
 | Embeddings | SentenceTransformers |
-| LLM | Groq (`mixtral-8x7b`) |
+| LLM | Groq (`meta-llama/llama-4-scout-17b-16e-instruct`) |
 | Deployment | Docker |
 | Version Control | Git + GitHub |
 
@@ -94,8 +94,7 @@ pip install -r requirements.txt
 Create a `.env` file in the project root:
 ```
 GROQ_API_KEY=your_groq_api_key_here
-LLM_MODEL=mixtral-8x7b
-```
+LLM_MODEL= meta-llama/llama-4-scout-17b-16e-instruct
 
 ### Initialize config
 Modify `config.yaml` as needed:
@@ -135,7 +134,7 @@ streamlit run streamlit_app.py
 ## Example Queries
 | Query | Expected Response |
 |-------|--------------------|
-| *“What are the most common issues from Roca customers?”* | Summarized ticket patterns for Roca. |
+| *“What are the most common issues from brand customers?”* | Summarized ticket patterns for Roca. |
 | *“Summarize open tickets from November 2024.”* | Short summary by date filter. |
 | *“Which companies reported frequent payment issues?”* | Company-wise problem breakdown. |
 

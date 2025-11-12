@@ -3,7 +3,7 @@ import requests
 
 API_URL = "http://127.0.0.1:8000/ask"
 
-st.set_page_config(page_title="Ticket Analysis Bot", page_icon="🤖", layout="wide")
+st.set_page_config(page_title="Ticket Analysis Bot", page_icon="", layout="wide")
 
 st.title("Ticket Analysis Bot")
 st.caption("Ask questions about your ticket dataset using AI-powered retrieval and summarization.")
